@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Tacacaria</title>
+    <link rel="stylesheet" href="tabacaria.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sistema de Tacacaria</h1>
+
+        <!-- Formulário para adicionar produto -->
+        <div class="product-section">
+            <h2>Adicionar Produto</h2>
+            <label for="product-code">Código do Produto:</label>
+            <input type="text" id="product-code" placeholder="Digite o código do produto" oninput="showProductDetails()">
+
+            <p id="product-name">Nome do Produto: -</p>
+            <p id="product-price">Preço: R$ 0.00</p>
+
+            <label for="quantity">Quantidade:</label>
+            <input type="number" id="quantity" min="1" value="1">
+
+            <button onclick="addProduct()">Adicionar ao Carrinho</button>
+        </div>
+
+        <!-- Carrinho de compras -->
+        <div class="cart-section">
+            <h2>Carrinho</h2>
+            <table id="cart-table">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                        <th>Preço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Produtos adicionados serão listados aqui -->
+                </tbody>
+            </table>
+            <p>Total: R$ <span id="total-value">0.00</span></p>
+        </div>
+
+        <!-- Seção de pagamento -->
+        <div class="payment-section">
+            <h2>Pagamento</h2>
+            <label for="payment">Valor Pago:</label>
+            <input type="number" id="payment" placeholder="Digite o valor pago">
+            <button onclick="calculateChange()">Calcular Troco</button>
+
+            <p>Troco: R$ <span id="change-value">0.00</span></p>
+
+            <!-- Botão de Finalizar Compra -->
+            <button onclick="finalizePurchase()">Finalizar Compra</button>
+        </div>
+
+        <!-- Mensagem de sucesso após finalizar compra -->
+        <p id="success-message" style="display: none; color: green;">Compra finalizada com sucesso!</p>
+    </div>
+
+    <script src="tabacaria.js"></script>
+</body>
+</html>
